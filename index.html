@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Of Nature Spa | Luxury Women's Salon</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme {
+                extend: {
+                    colors: {
+                        spaCream: '#FDFBF7',
+                        spaTaupe: '#6E5A4E',
+                        spaGold: '#D4AF37',
+                        spaCharcoal: '#1A1A1A',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #1A1A1A;
+            font-family: 'Inter', sans-serif;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glassmorphism transition-all duration-300 border-b border-stone-200/50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Left: Logo -->
+            <a href="#" class="font-serif text-xl tracking-widest text-spaCharcoal font-semibold uppercase">
+                Beauty Of Nature Spa
+            </a>
+            
+            <!-- Center: Links -->
+            <div class="hidden md:flex items-center space-x-8 font-sans text-xs tracking-widest uppercase font-medium">
+                <a href="#services" class="text-spaCharcoal/70 hover:text-spaTaupe transition-colors">Services</a>
+                <a href="#gallery" class="text-spaCharcoal/70 hover:text-spaTaupe transition-colors">Gallery</a>
+                <a href="#about" class="text-spaCharcoal/70 hover:text-spaTaupe transition-colors">About</a>
+                <a href="#booking" class="text-spaCharcoal/70 hover:text-spaTaupe transition-colors">Location</a>
+                <a href="#booking" class="text-spaCharcoal/70 hover:text-spaTaupe transition-colors">Contact</a>
+            </div>
+            
+            <!-- Right: CTA Button -->
+            <div>
+                <a href="#booking" class="bg-spaGold hover:bg-[#c4a030] text-white font-sans text-xs tracking-widest uppercase font-medium px-6 py-3 rounded-none shadow-sm transition-all duration-300 inline-block">
+                    Book Appointment
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="IMG_9120.jpeg" alt="Luxury Spa Interior" class="w-full h-full object-cover scale-105 filter brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-spaCream"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-[-40px]">
+            <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl text-white font-normal mb-6 tracking-wide drop-shadow-sm">
+                Beauty Unveiled,<br><span class="italic text-spaCream">Nature Embraced</span>
+            </h1>
+            <p class="font-sans text-sm sm:text-base text-white/90 max-w-xl mx-auto mb-10 tracking-wide font-light leading-relaxed">
+                A luxurious sanctuary for hair, body, and nail care tailored just for you.
+            </p>
+            <a href="#services" class="inline-block border border-spaGold bg-transparent text-white hover:bg-spaGold font-sans text-xs tracking-widest uppercase font-medium px-8 py-4 transition-all duration-300">
+                Book Now
+            </a>
+        </div>
+
+        <!-- Floating Glassmorphism Cards -->
+        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 w-full max-w-5xl px-6 grid grid-cols-3 gap-4 z-20 hidden sm:grid">
+            <div class="glassmorphism p-6 text-center shadow-lg transition-transform duration-300 hover:-translate-y-1">
+                <h3 class="font-serif text-lg text-spaTaupe mb-1 font-medium">Body Rituals</h3>
+                <p class="text-xs text-spaCharcoal/60 tracking-wider uppercase font-light">Baths & Massage</p>
+            </div>
+            <div class="glassmorphism p-6 text-center shadow-lg transition-transform duration-300 hover:-translate-y-1">
+                <h3 class="font-serif text-lg text-spaTaupe mb-1 font-medium">Premium Hair</h3>
+                <p class="text-xs text-spaCharcoal/60 tracking-wider uppercase font-light">Treatments & Styling</p>
+            </div>
+            <div class="glassmorphism p-6 text-center shadow-lg transition-transform duration-300 hover:-translate-y-1">
+                <h3 class="font-serif text-lg text-spaTaupe mb-1 font-medium">Nail Artistry</h3>
+                <p class="text-xs text-spaCharcoal/60 tracking-wider uppercase font-light">VIP Manicure</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT / BRAND PHILOSOPHY SECTION -->
+    <section id="about" class="py-24 bg-spaCream px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <span class="text-xs tracking-widest uppercase text-spaGold font-medium block mb-3">Welcome to Paradise</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-spaCharcoal mb-6">Our Sanctuary Philosophy</h2>
+            <div class="w-12 h-[1px] bg-spaTaupe/40 mx-auto mb-6"></div>
+            <p class="font-sans text-stone-600 font-light leading-relaxed text-sm sm:text-base">
+                At Beauty Of Nature Spa, we combine elite international standard practices with the pure essences of nature. Every element of our high-end luxury salon has been crafted to transport you into a state of deep, absolute relaxation. From rich walnut wood accents to tailored premium services, your rejuvenation is our craft.
+            </p>
+        </div>
+    </section>
+
+    <!-- 2. EXCLUSIVE SERVICE MENU SECTION -->
+    <section id="services" class="py-20 bg-white border-t border-stone-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-serif text-3xl sm:text-4xl text-spaCharcoal tracking-wide">The Core Experience</h2>
+                <p class="font-sans text-xs uppercase tracking-widest text-spaTaupe mt-2">Exclusive Service Menu</p>
+            </div>
+
+            <!-- Tab Navigation Buttons -->
+            <div class="flex flex-wrap justify-center mb-16 border-b border-stone-200 max-w-3xl mx-auto font-sans text-xs uppercase tracking-widest font-medium">
+                <button onclick="switchTab('nails')" id="btn-nails" class="tab-btn px-6 py-4 border-b-2 border-spaTaupe text-spaCharcoal">Nails & Paraffin</button>
+                <button onclick="switchTab('massage')" id="btn-massage" class="tab-btn px-6 py-4 border-b-2 border-transparent text-stone-400 hover:text-spaCharcoal">Massage & Baths</button>
+                <button onclick="switchTab('hair')" id="btn-hair" class="tab-btn px-6 py-4 border-b-2 border-transparent text-stone-400 hover:text-spaCharcoal">Hair Treatments</button>
+                <button onclick="switchTab('skincare')" id="btn-skincare" class="tab-btn px-6 py-4 border-b-2 border-transparent text-stone-400 hover:text-spaCharcoal">Skincare & Waxing</button>
+            </div>
+
+            <!-- TAB 1: NAILS & PARAFFIN -->
+            <div id="tab-nails" class="tab-content grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <img src="IMG_9130.jpeg" alt="Nail Gallery" class="w-full h-64 object-cover col-span-2">
+                    <img src="IMG_9125.jpeg" alt="Nail Care" class="w-full h-40 object-cover">
+                    <img src="IMG_9127.jpeg" alt="Premium Nails" class="w-full h-40 object-cover">
+                    <img src="IMG_9124.jpeg" alt="Manicure Setup" class="w-full h-40 object-cover">
+                    <img src="IMG_9118.jpeg" alt="VIP Pedicure" class="w-full h-40 object-cover">
+                </div>
+                <div class="lg:col-span-7 space-y-6">
+                    <h3 class="font-serif text-2xl text-spaTaupe mb-4">Nails & Paraffin Treatments</h3>
+                    <div class="divide-y divide-stone-100">
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Regular Manicure & Pedicure</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">VIP Luxury Mani/Pedi</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Salts & Crystal Pedicure</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Deep Paraffin Treatment</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Acrylic Extensions</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Silicon / Gel Nails</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Premium Ombré Styles</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: MASSAGE & BATHS -->
+            <div id="tab-massage" class="tab-content hidden grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <img src="IMG_9121.jpeg" alt="Massage & Baths" class="w-full h-64 object-cover col-span-2">
+                    <img src="IMG_9119.jpeg" alt="Spa Ritual" class="w-full h-48 object-cover">
+                    <img src="IMG_9126.jpeg" alt="Baths Sanctuary" class="w-full h-48 object-cover">
+                </div>
+                <div class="lg:col-span-7 space-y-6">
+                    <h3 class="font-serif text-2xl text-spaTaupe mb-4">Massage & Specialized Baths</h3>
+                    <div class="divide-y divide-stone-100">
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Kids Bath & Relaxation Massage</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Luxury Herbal Vitamin C Bath</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Special Sanctuary Spa Bath</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Detoxifying Hydro Bath</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Traditional Saudi Bath Ritual</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Authentic Moroccan & Indian Baths</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Traditional Loofah Botanical Scrub</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: HAIR TREATMENTS -->
+            <div id="tab-hair" class="tab-content hidden grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <img src="IMG_9135.jpeg" alt="Hair Styling" class="w-full h-52 object-cover">
+                    <img src="IMG_9134.jpeg" alt="Hair Care" class="w-full h-52 object-cover">
+                    <img src="IMG_9136.jpeg" alt="Hair Treatment" class="w-full h-52 object-cover">
+                    <img src="IMG_9137.jpeg" alt="Premium Blowdry" class="w-full h-52 object-cover">
+                </div>
+                <div class="lg:col-span-7 space-y-6">
+                    <h3 class="font-serif text-2xl text-spaTaupe mb-4">Hair Treatments & High-End Styling</h3>
+                    <div class="divide-y divide-stone-100">
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Nourishing Hot Oil Hair Masks</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Advanced Protein & Detox Therapy</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Natural Organic Fruit / Henna / Sidr Masks</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Professional Precision Haircut</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Signature Blow-dry & Runway Styling</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Ceramic Smoothing & Ultra Wavy Styling</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: SKINCARE & HAIR REMOVAL -->
+            <div id="tab-skincare" class="tab-content hidden grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 grid grid-cols-1 gap-4">
+                    <img src="IMG_9126.jpeg" alt="Skincare Glow" class="w-full h-52 object-cover">
+                    <img src="IMG_9141.jpeg" alt="Facial Cleansing" class="w-full h-52 object-cover">
+                </div>
+                <div class="lg:col-span-7 space-y-6">
+                    <h3 class="font-serif text-2xl text-spaTaupe mb-4">Skincare & Deluxe Hair Removal</h3>
+                    <div class="divide-y divide-stone-100">
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Eyebrow Sculpting, Bleaching & Tinting</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Precision Blackhead Extraction</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Deep Hydrating & Surface Facial Cleansing</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Traditional Halawa (Waxing) Full Face</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                        <div class="py-4 flex justify-between items-center"><span class="font-medium text-stone-800">Traditional Halawa Full Body Hair Removal</span><span class="text-spaGold font-medium">Premium Service</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. INSTAGRAM & ESTHETIC GALLERY SECTION -->
+    <section id="gallery" class="py-20 bg-spaCream">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest text-spaGold font-medium">Editorial Inspiration</span>
+                <h2 class="font-serif text-3xl text-spaCharcoal mt-2">Aesthetic Sanctuary Moments</h2>
+            </div>
+            
+            <!-- Editorial Grid Layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group relative overflow-hidden bg-white aspect-[3/4]">
+                    <img src="IMG_9127.jpeg" alt="Nail Art Masterpiece" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden bg-white aspect-[3/4]">
+                    <img src="IMG_9138.jpeg" alt="Clean Interior Details" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden bg-white aspect-[3/4]">
+                    <img src="IMG_9131.jpeg" alt="Luxury Nail Polish Display" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden bg-white aspect-[3/4]">
+                    <img src="IMG_9139.jpeg" alt="Aesthetic Coffee Setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. WHATSAPP SMART BOOKING & LOCATION SECTION -->
+    <section id="booking" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
+                
+                <!-- Left Side: Booking Preview Card -->
+                <div class="bg-spaCream p-8 lg:p-12 flex flex-col justify-between border border-stone-100">
+                    <div>
+                        <span class="text-xs tracking-widest uppercase text-spaGold font-medium block mb-2">Instant Concierge</span>
+                        <h3 class="font-serif text-3xl text-spaCharcoal mb-6">Smart WhatsApp Booking</h3>
+                        
+                        <!-- Interactive Calendar Mockup -->
+                        <div class="bg-white p-4 border border-stone-100 mb-6">
+                            <div class="flex justify-between items-center mb-4 border-b border-stone-100 pb-2">
+                                <span class="font-serif text-sm font-semibold text-spaTaupe" id="monthLabel">June 2026</span>
+                                <div class="space-x-2 text-xs text-stone-400">
+                                    <button class="hover:text-spaCharcoal"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="hover:text-spaCharcoal"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-7 gap-2 text-center text-xs font-medium text-stone-400 mb-2">
+                                <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+                            </div>
+                            <div class="grid grid-cols-7 gap-2 text-center text-xs">
+                                <div class="text-stone-300 p-2">31</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">1</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">2</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">3</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">4</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">5</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">6</div>
+                                <div class="p-2 bg-spaGold text-white font-semibold">19</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">20</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">21</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">22</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">23</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">24</div>
+                                <div class="p-2 hover:bg-spaTaupe hover:text-white cursor-pointer">25</div>
+                            </div>
+                        </div>
+
+                        <!-- Service Select Field -->
+                        <div class="space-y-4">
+                            <label class="block text-xs uppercase tracking-widest font-medium text-spaCharcoal">Select Main Service</label>
+                            <select id="serviceSelect" class="w-full bg-white border border-stone-200 text-stone-700 px-4 py-3 focus:outline-none focus:border-spaGold font-sans text-sm rounded-none appearance-none">
+                                <option value="VIP Manicure & Pedicure Package">Nails & Paraffin: VIP Manicure/Pedicure</option>
+                                <option value="Luxury Herbal VC Bath & Massage">Massage & Baths: Luxury Herbal VC Bath</option>
+                                <option value="Premium Hair Treatment & Blowdry">Hair: Premium Hair Mask & Styling</option>
+                                <option value="Deep Hydrating Facial & Cleansing">Skincare: Deep Hydrating Facial</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Direct WhatsApp Integration Button -->
+                    <div class="mt-8">
+                        <button onclick="sendWhatsAppBooking()" class="w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-sans text-xs tracking-widest uppercase font-medium py-4 transition-all duration-300 flex items-center justify-center space-x-2">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                            <span>Confirm Appointment via WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Side: The Sanctuary Location -->
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs tracking-widest uppercase text-spaGold font-medium block mb-2">Visit Us</span>
+                        <h3 class="font-serif text-3xl text-spaCharcoal mb-6">The Sanctuary Location</h3>
+                        
+                        <!-- Embedded Interactive Map block clickable to actual Google Maps URL -->
+                        <a href="https://maps.app.goo.gl/YHjeCCXeEsKhWwqE9?g_st=ic" target="_blank" class="block relative w-full h-80 bg-stone-100 group overflow-hidden border border-stone-200">
+                            <!-- Fallback/Premium Look Map Styling Frame -->
+                            <div class="absolute inset-0 bg-stone-200 opacity-40 group-hover:opacity-20 transition-opacity duration-500"></div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center z-10 p-6 text-center">
+                                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md mb-3 text-spaGold group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-map-marker-alt text-lg"></i>
+                                </div>
+                                <p class="font-serif text-lg text-spaCharcoal font-medium">Click to Open Interactive Map</p>
+                                <p class="text-xs text-stone-500 mt-1">View Sanctuary Route on Google Maps</p>
+                            </div>
+                            <!-- Background Map Aesthetic Image Placeholder -->
+                            <img src="IMG_9140.jpeg" alt="Salon Map Location Cover" class="w-full h-full object-cover">
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 border-t border-stone-100 pt-6 grid grid-cols-2 gap-4 text-xs font-sans">
+                        <div>
+                            <h4 class="font-medium text-spaTaupe uppercase tracking-wider mb-2">Opening Hours</h4>
+                            <p class="text-stone-600">Saturday – Thursday</p>
+                            <p class="text-spaCharcoal font-medium">11:00 AM – 9:00 PM</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-spaTaupe uppercase tracking-wider mb-2">Sanctuary Address</h4>
+                            <p class="text-stone-600">Premium Luxury District</p>
+                            <p class="text-spaCharcoal font-medium">Kingdom of Saudi Arabia</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-spaCharcoal text-white/80 py-16 px-6 font-sans border-t border-stone-900">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <!-- Brand -->
+            <div class="text-center md:text-left">
+                <h3 class="font-serif text-lg text-white tracking-widest uppercase font-medium">Beauty Of Nature Spa</h3>
+                <p class="text-xs text-stone-400 mt-1 font-light">Ultra-Premium Hair, Body, and Nail Care Sanctuary.</p>
+            </div>
+            
+            <!-- Social Media Elegant Icons -->
+            <div class="flex items-center space-x-6 text-sm tracking-widest">
+                <a href="#" class="hover:text-spaGold transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="#" class="hover:text-spaGold transition-colors"><i class="fab fa-tiktok text-lg"></i></a>
+                <a href="#" class="hover:text-spaGold transition-colors"><i class="fab fa-snapchat text-lg"></i></a>
+            </div>
+            
+            <!-- Copyright & Meta -->
+            <div class="text-center md:text-right text-xs text-stone-400 font-light">
+                <p>&copy; 2026 Beauty Of Nature Spa. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTIVE UI TABS & WHATSAPP GENERATOR -->
+    <script>
+        // Tab switching function
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+            
+            // Remove active border style from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('border-spaTaupe', 'text-spaCharcoal');
+                btn.classList.add('border-transparent', 'text-stone-400');
+            });
+            
+            // Show current tab content
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            
+            // Highlight current clicked tab button
+            document.getElementById('btn-' + tabId).classList.add('border-spaTaupe', 'text-spaCharcoal');
+            document.getElementById('btn-' + tabId).classList.remove('border-transparent', 'text-stone-400');
+        }
+
+        // Live WhatsApp message dynamic workflow
+        function sendWhatsAppBooking() {
+            const selectedService = document.getElementById('serviceSelect').value;
+            const phoneNumber = "966509906309"; 
+            
+            // Dynamic premium pre-filled text generation
+            const baseText = `Hello Beauty Of Nature Spa, I would like to request a premium booking appointment for the following tailored service:\n\n✨ *${selectedService}* ✨\n\nPlease confirm availability for my session. Thank you.`;
+            const encodedText = encodeURIComponent(baseText);
+            
+            // Open direct API WhatsApp Link
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
+        }
+
+        // Elegant minimal Navbar transparency effect on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/95', 'shadow-sm');
+                nav.classList.remove('bg-white/65');
+            } else {
+                nav.classList.remove('bg-white/95', 'shadow-sm');
+                nav.classList.add('bg-white/65');
+            }
+        });
+    </script>
+</body>
+</html>
