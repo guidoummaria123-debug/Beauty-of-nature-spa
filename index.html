@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Of Nature Spa | مشغل جمال الطبيعة</title>
+    <!-- Google Fonts: Playfair Display, Inter, and Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VISUAL IDENTITY & CSS VARIABLES --- */
+        :root {
+            --bg-primary: #FDFBF7;
+            --color-accent: #6E5A4E;
+            --color-gold: #D4AF37;
+            --text-dark: #2C2520;
+            --text-light: #FDFBF7;
+            --font-en-serif: 'Playfair Display', serif;
+            --font-en-sans: 'Inter', sans-serif;
+            --font-ar: 'Cairo', sans-serif;
+            --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            --font-current-serif: var(--font-en-serif);
+            --font-current-sans: var(--font-en-sans);
+        }
+
+        [dir="rtl"] {
+            --font-current-serif: var(--font-ar);
+            --font-current-sans: var(--font-ar);
+        }
+
+        /* --- GLOBAL RESETS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-dark);
+            font-family: var(--font-current-sans);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-current-serif);
+            font-weight: 400;
+            letter-spacing: 0.03em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 8rem 0;
+        }
+
+        .ar-text, [lang="ar"] .en-text { display: none; }
+        [lang="ar"] .ar-text { display: inline; }
+        .en-text { display: inline; }
+
+        /* Arched Architecture Element */
+        .arch-frame {
+            border-top-left-radius: 120px;
+            border-top-right-radius: 120px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- PREMIUM NAVIGATION BAR --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(110, 90, 78, 0.08);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            padding: 0 3rem;
+        }
+
+        .logo {
+            font-family: var(--font-current-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .lang-toggle {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            border: 1px solid rgba(110, 90, 78, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+
+        .lang-toggle:hover {
+            background-color: var(--color-accent);
+            color: var(--text-light);
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 18px;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 1.5px;
+            background-color: var(--color-accent);
+            transition: var(--transition-smooth);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* --- FULL SCREEN OVERLAY DRAWER --- */
+        .nav-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 400px;
+            height: 100FA;
+            height: 100vh;
+            background: var(--bg-primary);
+            z-index: 1001;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.03);
+            transition: var(--transition-smooth);
+            padding: 8rem 4rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-left: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        [dir="rtl"] .nav-drawer {
+            right: auto;
+            left: -100%;
+            border-left: none;
+            border-right: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 10px 0 30px rgba(0,0,0,0.03);
+        }
+
+        .nav-drawer.active {
+            right: 0;
+        }
+        [dir="rtl"] .nav-drawer.active {
+            left: 0;
+        }
+
+        .drawer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .drawer-links a {
+            font-family: var(--font-current-serif);
+            font-size: 1.8rem;
+            color: var(--color-accent);
+            transition: var(--transition-smooth);
+            position: relative;
+            width: fit-content;
+        }
+
+        .drawer-links a:hover {
+            color: var(--color-gold);
+            transform: translateX(10px);
+        }
+        [dir="rtl"] .drawer-links a:hover {
+            transform: translateX(-10px);
+        }
+
+        @media (max-width: 500px) {
+            .nav-drawer { width: 100%; }
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(44, 37, 32, 0.45), rgba(44, 37, 32, 0.45)), url('IMG_9120.jpeg');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.05);
+            animation: zoomOut 2s forwards;
+        }
+
+        @keyframes zoomOut {
+            to { transform: scale(1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--text-light);
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-family: var(--font-en-sans);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        [dir="rtl"] .hero p {
+            font-family: var(--font-ar);
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            border: 1px solid var(--color-gold);
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            transition: var(--transition-smooth);
+            background: rgba(110, 90, 78, 0.15);
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-gold:hover {
+            background: var(--color-gold);
+            color: var(--text-dark);
+            box-shadow: 0 10px 30px rgba(214, 175, 87, 0.2);
+        }
+
+        /* --- BRAND SUMMARY / ABOUT --- */
+        .brand-summary {
+            background-color: #FAF6F0;
+            text-align: center;
+        }
+
+        .summary-box {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(214, 175, 87, 0.25);
+            padding: 4rem 3rem;
+            position: relative;
+            background-color: var(--bg-primary);
+        }
+
+        .summary-box::before {
+            content: '';
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            border: 1px solid rgba(110, 90, 78, 0.05);
+            pointer-events: none;
+        }
+
+        .summary-box p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--color-accent);
+            font-weight: 300;
+        }
+
+        /* --- EXCLUSIVE SERVICE MENU --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 1px;
+            background-color: var(--color-gold);
+            margin: 1.5rem auto 0;
+        }
+
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            border: 1px solid rgba(110, 90, 78, 0.15);
+            border-radius: 40px 40px 0 0; /* Premium Arched Design Top */
+            font-size: 0.95rem;
+            color: var(--color-accent);
+            transition: var(--transition-smooth);
+            background: transparent;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--color-accent);
+            color: var(--text-light);
+            border-color: var(--color-accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .services-panel {
+            display: none;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .services-panel.active {
+            display: grid;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px dashed rgba(110, 90, 78, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .service-name {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--text-dark);
+        }
+
+        .service-premium-tag {
+            font-size: 0.8rem;
+            color: var(--color-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .services-gallery {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+        }
+
+        .services-gallery img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+            transition: var(--transition-smooth);
+        }
+
+        .services-gallery img:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Distribution of Images inside categories dynamic layouts */
+        .img-span-3 { grid-column: span 3; }
+        .img-span-2 { grid-column: span 2; }
+        .img-span-6 { grid-column: span 6; }
+
+        @media (max-width: 968px) {
+            .services-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .services-gallery { order: -1; }
+        }
+
+        /* --- EDITORIAL INSTAGRAM GALLERY --- */
+        .editorial-gallery {
+            background-color: #FAF6F0;
+        }
+
+        .grid-editorial {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-editorial { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* --- WHATSAPP SMART BOOKING & LOCATION --- */
+        .booking-location-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 968px) {
+            .booking-location-section { grid-template-columns: 1fr; gap: 4rem; }
+        }
+
+        .card-glass {
+            background: rgba(253, 251, 247, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3.5rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-accent);
+        }
+
+        .form-control {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(110, 90, 78, 0.3);
+            padding: 0.8rem 0;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            border-bottom-color: var(--color-gold);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            transition: var(--transition-smooth);
+            border: 1px solid #20ba5a;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            margin-bottom: 2rem;
+        }
+
+        .location-side img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* --- LUXURIOUS FOOTER --- */
+        footer {
+            background-color: var(--text-dark);
+            color: #E5DEC9;
+            padding: 5rem 0 3rem;
+            border-top: 2px solid var(--color-gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+
+        .footer-brand h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--bg-primary);
+        }
+
+        .footer-hours p {
+            margin-top: 0.5rem;
+            font-weight: 300;
+            opacity: 0.85;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid transparent;
+        }
+
+        .social-icons a:hover {
+            color: var(--color-gold);
+            border-bottom-color: var(--color-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(253, 251, 247, 0.08);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- PREMIUM NAVIGATION BAR --- -->
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="en-text">Beauty Of Nature Spa</span>
+                <span class="ar-text">مشغل جمال الطبيعة</span>
+            </a>
+            <div class="nav-actions">
+                <button class="lang-toggle" onclick="toggleLanguage()" id="langToggleBtn">AR</button>
+                <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- FULL SCREEN OVERLAY DRAWER --- -->
+    <nav class="nav-drawer" id="navDrawer">
+        <div class="drawer-links">
+            <a href="#home" onclick="toggleMenu()">
+                <span class="en-text">Home</span><span class="ar-text">الرئيسية</span>
+            </a>
+            <a href="#about" onclick="toggleMenu()">
+                <span class="en-text">About Us</span><span class="ar-text">من نحن</span>
+            </a>
+            <a href="#services" onclick="toggleMenu()">
+                <span class="en-text">Services</span><span class="ar-text">الخدمات</span>
+            </a>
+            <a href="#book" onclick="toggleMenu()">
+                <span class="en-text">Book</span><span class="ar-text">احجز الآن</span>
+            </a>
+            <a href="#contact" onclick="toggleMenu()">
+                <span class="en-text">Contact Us</span><span class="ar-text">اتصل بنا</span>
+            </a>
+        </div>
+        <div style="font-size: 0.85rem; opacity: 0.6; letter-spacing: 0.05em; color: var(--color-accent)">
+            <span class="en-text">© 2026 Beauty Of Nature. Sanctuary of Serenity.</span>
+            <span class="ar-text">© 2026 مشغل جمال الطبيعة. واحة الهدوء.</span>
+        </div>
+    </nav>
+
+    <!-- --- HERO SECTION --- -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>
+                <span class="en-text">Beauty Unveiled,<br>Nature Embraced</span>
+                <span class="ar-text">جمال يتجلى،<br>طبيعة تحتضنك</span>
+            </h1>
+            <p>
+                <span class="en-text">A luxurious sanctuary for hair, body, and nail care tailored just for you.</span>
+                <span class="ar-text">ملاذ فاخر للعناية بالشعر، الجسم، والأظافر مصمم خصيصاً لكِ.</span>
+            </p>
+            <a href="#book" class="btn-gold">
+                <span class="en-text">Book Now</span><span class="ar-text">احجز الآن</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- --- BRAND SUMMARY / ABOUT --- -->
+    <section id="about" class="brand-summary section-padding">
+        <div class="container">
+            <div class="summary-box">
+                <p class="en-text">
+                    Welcome to Beauty of Nature Spa, a sanctuary designed to rejuvenate your mind, body, and soul. Inspired by natural elegance, we offer premium hair care, luxury nail treatments, traditional baths, and professional skincare services. Step into our world of serenity, where expert hands highlight your authentic beauty.
+                </p>
+                <p class="ar-text">
+                    مرحباً بكم في مشغل جمال الطبيعة، واحتكم الخاصة المصممة لتجديد حيوية العقل، الجسد، والروح. مستوحى من الأناقة الطبيعية، نقدم عناية فائقة بالشعر، خدمات الأظافر الفاخرة، الحمامات التقليدية، والعناية الاحترافية بالبشرة. خطوة واحدة داخل عالمنا الهادئ تضمن لكِ تجربة فريدة تبرز جمالكِ الأصيل بأيدي خبيراتنا.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- EXCLUSIVE SERVICE MENU --- -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en-text">Exclusive Service Menu</span>
+                <span class="ar-text">قائمة الخدمات الحصرية</span>
+            </h2>
+
+            <!-- Arched Category Tabs -->
+            <div class="tabs-container">
+                <button class="tab-btn active" onclick="switchTab(event, 'nails')">
+                    <span class="en-text">Nails & Paraffin</span><span class="ar-text">الأظافر والبرافين</span>
+                </button>
+                <button class="tab-btn" onclick="switchTab(event, 'massage')">
+                    <span class="en-text">Massage & Baths</span><span class="ar-text">المساج والحمامات</span>
+                </button>
+                <button class="tab-btn" onclick="switchTab(event, 'hair')">
+                    <span class="en-text">Hair & Styling</span><span class="ar-text">العناية بالشعر والتسريح</span>
+                </button>
+                <button class="tab-btn" onclick="switchTab(event, 'skincare')">
+                    <span class="en-text">Skincare & Waxing</span><span class="ar-text">العناية بالبشرة وإزالة الشعر</span>
+                </button>
+            </div>
+
+            <!-- TAB 1: NAILS -->
+            <div id="nails" class="services-grid services-panel active">
+                <div class="services-list">
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Regular Manicure & Pedicure</span><span class="ar-text">باديكير ومنيكير كلاسيكي</span></div>
+                        <div class="service-premium-tag">Essential</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">VIP Treatment Mani-Pedi</span><span class="ar-text">منيكير وباديكير VIP الفاخر</span></div>
+                        <div class="service-premium-tag">Signature</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Salts & Crystal Pedi Suite</span><span class="ar-text">باديكير الأملاح والكريستال الاسترخائي</span></div>
+                        <div class="service-premium-tag">Luxury</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Paraffin Thermal Infusion</span><span class="ar-text">علاج البرافين الحراري المخملي</span></div>
+                        <div class="service-premium-tag">Therapy</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Acrylic Extensions Architecture</span><span class="ar-text">تركيب وإعادة هيكلة أظافر الأكريليك</span></div>
+                        <div class="service-premium-tag">Premium</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Silicon & Gel Overlay</span><span class="ar-text">أظافر السيليكون والجل الاحترافي</span></div>
+                        <div class="service-premium-tag">Artistry</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Ombré & Custom Nail Couture</span><span class="ar-text">تدرج الألوان أومبريه وفنون الأظافر</span></div>
+                        <div class="service-premium-tag">Artistry</div>
+                    </div>
+                </div>
+                <div class="services-gallery">
+                    <img src="IMG_9130.jpeg" alt="Nails" class="arch-frame img-span-3">
+                    <img src="IMG_9125.jpeg" alt="Nails" class="arch-frame img-span-3">
+                    <img src="IMG_9127.jpeg" alt="Nails" class="arch-frame img-span-2">
+                    <img src="IMG_9124.jpeg" alt="Nails" class="arch-frame img-span-2">
+                    <img src="IMG_9118.jpeg" alt="Nails" class="arch-frame img-span-2">
+                </div>
+            </div>
+
+            <!-- TAB 2: MASSAGE & BATHS -->
+            <div id="massage" class="services-grid services-panel">
+                <div class="services-list">
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Kids Delicate Bath & Massage</span><span class="ar-text">حمام ومساج الأطفال اللطيف</span></div>
+                        <div class="service-premium-tag">Care</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Luxury Herbal VC Botanical Bath</span><span class="ar-text">الحمام العشبي الفاخر بفيتامين C</span></div>
+                        <div class="service-premium-tag">Radiance</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Special Signature Spa Bath</span><span class="ar-text">حمام السبا الخاص بجمال الطبيعة</span></div>
+                        <div class="service-premium-tag">Signature</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Detoxifying Deep Cleansing Bath</span><span class="ar-text">حمام الديتوكس لتطهير خلايا البشرة</span></div>
+                        <div class="service-premium-tag">Purify</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Traditional Saudi & Moroccan Rituals</span><span class="ar-text">الحمام المغربي والسعودي التراثي</span></div>
+                        <div class="service-premium-tag">Heritage</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Authentic Indian Holistic Bath</span><span class="ar-text">الحمام الهندي الاستشفائي المتكامل</span></div>
+                        <div class="service-premium-tag">Holistic</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Traditional Deep Loofah Scrubbing</span><span class="ar-text">تقشير عميق باللوفة المغربية الأصلية</span></div>
+                        <div class="service-premium-tag">Exfoliate</div>
+                    </div>
+                </div>
+                <div class="services-gallery">
+                    <img src="IMG_9121.jpeg" alt="Baths" class="arch-frame img-span-3">
+                    <img src="IMG_9119.jpeg" alt="Massage" class="arch-frame img-span-3">
+                    <img src="IMG_9126.jpeg" alt="Spa" class="arch-frame img-span-6">
+                </div>
+            </div>
+
+            <!-- TAB 3: HAIR TREATMENTS -->
+            <div id="hair" class="services-grid services-panel">
+                <div class="services-list">
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Botanical Hot Oil Infusion Mask</span><span class="ar-text">ماسك الزيوت الطبيعية الساخنة المكثف</span></div>
+                        <div class="service-premium-tag">Nourish</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Advanced Protein & Restructuring Detox</span><span class="ar-text">ديتوكس بروتين متطور لترميم ألياف الشعر</span></div>
+                        <div class="service-premium-tag">Repair</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Organic Crushed Fruit Active Mask</span><span class="ar-text">ماسك الفواكه الطبيعية العضوية المغذي</span></div>
+                        <div class="service-premium-tag">Organic</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Traditional Pure Henna & Sidr Rituals</span><span class="ar-text">جلسات الحناء السدر الطبيعية النقية</span></div>
+                        <div class="service-premium-tag">Pure</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Couture Architectural Haircuts</span><span class="ar-text">قصات شعر عصرية بأبعاد دقيقة</span></div>
+                        <div class="service-premium-tag">Style</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Professional Executive Blow-Dry</span><span class="ar-text">سشوار احترافي فوليوم وانسيابي</span></div>
+                        <div class="service-premium-tag">Finish</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Precision Ceramic Finish & Editorial Waves</span><span class="ar-text">تصفيف سيراميك فائق والويفي العصري</span></div>
+                        <div class="service-premium-tag">Glamour</div>
+                    </div>
+                </div>
+                <div class="services-gallery">
+                    <img src="IMG_9135.jpeg" alt="Hair" class="arch-frame img-span-3">
+                    <img src="IMG_9134.jpeg" alt="Styling" class="arch-frame img-span-3">
+                    <img src="IMG_9136.jpeg" alt="Treatment" class="arch-frame img-span-3">
+                    <img src="IMG_9137.jpeg" alt="Salon" class="arch-frame img-span-3">
+                </div>
+            </div>
+
+            <!-- TAB 4: SKINCARE -->
+            <div id="skincare" class="services-grid services-panel">
+                <div class="services-list">
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Precision Eyebrow Bleaching & Tinting</span><span class="ar-text">تشقير وصبغ الحواجب الفاخر والمنسق</span></div>
+                        <div class="service-premium-tag">Definition</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Targeted Blackhead Extracting Treatment</span><span class="ar-text">جلسات تنظيف وإزالة الرؤوس السوداء المستهدفة</span></div>
+                        <div class="service-premium-tag">Clear</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Deep Clarifying Cellular Facial Cleanse</span><span class="ar-text">تنظيف البشرة العميق وتجديد الخلايا الخلوي</span></div>
+                        <div class="service-premium-tag">Advanced</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Surface Express Hydrating Facial Cleanse</span><span class="ar-text">تنظيف سطحي سريع لترطيب ونضارة البشرة</span></div>
+                        <div class="service-premium-tag">Glow</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Traditional Full Body Halawa (Waxing)</span><span class="ar-text">إزالة شعر الجسم بالكامل بالحلاوة التقليدية</span></div>
+                        <div class="service-premium-tag">Smooth</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-name"><span class="en-text">Delicate Facial Sugar Waxing Epilation</span><span class="ar-text">إزالة شعر الوجه الرقيق بالشمع الطبيعي الناعم</span></div>
+                        <div class="service-premium-tag">Gentle</div>
+                    </div>
+                </div>
+                <div class="services-gallery">
+                    <img src="IMG_9126.jpeg" alt="Facial" class="arch-frame img-span-3">
+                    <img src="IMG_9141.jpeg" alt="Skincare" class="arch-frame img-span-3">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- --- ESTHETIC INSTAGRAM GALLERY SECTION --- -->
+    <section class="editorial-gallery section-padding">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en-text">Aesthetic Accents</span>
+                <span class="ar-text">تفاصيل الأناقة والجمال</span>
+            </h2>
+            <div class="grid-editorial">
+                <div class="arch-frame"><img src="IMG_9127.jpeg" alt="Editorial Details"></div>
+                <div class="arch-frame"><img src="IMG_9138.jpeg" alt="Nail Art Lounge"></div>
+                <div class="arch-frame"><img src="IMG_9131.jpeg" alt="Minimal Interior Corner"></div>
+                <div class="arch-frame"><img src="IMG_9139.jpeg" alt="Lounge Coffee Setup"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SMART BOOKING & LOCATION SECTION --- -->
+    <section id="book" class="section-padding container">
+        <div class="booking-location-section">
+            
+            <!-- Left Side: Booking Widget Mockup -->
+            <div class="card-glass arch-frame">
+                <h3 style="color: var(--color-accent); font-size: 1.8rem; margin-bottom: -0.5rem;">
+                    <span class="en-text">Request An Appointment</span>
+                    <span class="ar-text">طلب موعد حجز</span>
+                </h3>
+                
+                <div class="form-group">
+                    <label>
+                        <span class="en-text">Select Preferred Date</span><span class="ar-text">اختر التاريخ المفضل</span>
+                    </label>
+                    <input type="date" class="form-control" id="bookingDate" value="2026-06-20">
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span class="en-text">Desired Treatment Categories</span><span class="ar-text">الخدمات المراد حجزها</span>
+                    </label>
+                    <input type="text" class="form-control" id="bookingService" placeholder="e.g., VIP Mani Pedi & Moroccan Bath / مثلاً: منيكير VIP وحمام مغربي">
+                </div>
+
+                <button class="btn-whatsapp" onclick="sendWhatsAppBooking()">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="margin-inline-end: 8px;">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.4 0 12.008 0c3.202.001 6.212 1.249 8.477 3.522 2.266 2.273 3.51 5.29 3.506 8.495-.005 6.65-5.347 12-11.954 12-2.007-.001-3.98-.502-5.735-1.464L0 24zm6.076-4.145c1.651.98 3.268 1.496 5.867 1.497 5.474 0 9.927-4.42 9.931-9.858.002-2.634-1.02-5.111-2.879-6.974E-1.858-1.864-4.331-2.89-6.969-2.891-5.477 0-9.93 4.42-9.934 9.859-.001 2.247.58 4.436 1.684 6.343l-.117-.186-1.121 4.093 4.19-1.099-.181-.106z"/>
+                    </svg>
+                    <span class="en-text">Confirm via WhatsApp</span>
+                    <span class="ar-text">تأكيد الحجز عبر الواتساب</span>
+                </button>
+            </div>
+
+            <!-- Right Side: Location Map -->
+            <div id="contact" class="location-side">
+                <h3 style="color: var(--color-accent); font-size: 1.8rem; margin-bottom: 1.5rem;">
+                    <span class="en-text">Our Serene Location</span>
+                    <span class="ar-text">موقعنا الهادئ</span>
+                </h3>
+                <div class="map-container arch-frame">
+                    <!-- Embedded Google Map targeting the provided luxurious location address -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.4556100128913!2d46.6712345!3d24.7134567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0326e2a2c5b1%3A0x289fa3c7e7ddaa83!2sBeauty%20Of%20Nature%20Spa!5e0!3m2!1sen!2ssa!4v1718832000000!5m2!1sen!2ssa" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/YHjeCCXeEsKhWwqE9?g_st=ic" target="_blank" style="display: block;">
+                    <img src="IMG_9140.jpeg" alt="Spa Entrance Arch View" class="arch-frame">
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- --- LUXURIOUS FOOTER --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>
+                        <span class="en-text">Beauty Of Nature</span>
+                        <span class="ar-text">مشغل جمال الطبيعة</span>
+                    </h3>
+                    <p style="font-weight: 300; opacity: 0.8;">
+                        <span class="en-text">Luxury Women's Salon & Spa</span>
+                        <span class="ar-text">صالون وسبا نسائي راقٍ</span>
+                    </p>
+                </div>
+                <div class="footer-hours">
+                    <h4 style="color: var(--color-gold); margin-bottom: 0.8rem;">
+                        <span class="en-text">Opening Hours</span><span class="ar-text">أوقات العمل</span>
+                    </h4>
+                    <p><span class="en-text">Saturday – Thursday: 1:00 PM – 10:00 PM</span><span class="ar-text">السبت – الخميس: ١:٠٠ م – ١٠:٠٠ م</span></p>
+                    <p><span class="en-text">Friday: 2:00 PM – 10:00 PM</span><span class="ar-text">الجمعة: ٢:٠٠ م – ١٠:٠٠ م</span></p>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-gold); margin-bottom: 0.8rem;">
+                        <span class="en-text">Follow Our Journey</span><span class="ar-text">تابعنا على مجتمعاتنا</span>
+                    </h4>
+                    <div class="social-icons">
+                        <a href="https://instagram.com" target="_blank">Instagram</a>
+                        <a href="https://tiktok.com" target="_blank">TikTok</a>
+                        <a href="https://snapchat.com" target="_blank">Snapchat</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="en-text">© 2026 Beauty Of Nature Spa. All Rights Reserved. Coherent Luxury Design.</span>
+                <span class="ar-text">© ٢٠٢٦ مشغل جمال الطبيعة. جميع الحقوق محفوظة. تصميم فاخر متناسق.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- INTERACTIVE JAVASCRIPT --- -->
+    <script>
+        // Hamburger Overlay Menu Control
+        function toggleMenu() {
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.getElementById('navDrawer').classList.toggle('active');
+        }
+
+        // Seamless Multi-Language Switching (Without Page Reload)
+        function toggleLanguage() {
+            const htmlNode = document.documentElement;
+            const currentLang = htmlNode.getAttribute('lang');
+            const toggleBtn = document.getElementById('langToggleBtn');
+
+            if (currentLang === 'en') {
+                htmlNode.setAttribute('lang', 'ar');
+                htmlNode.setAttribute('dir', 'rtl');
+                toggleBtn.innerText = 'EN';
+            } else {
+                htmlNode.setAttribute('lang', 'en');
+                htmlNode.setAttribute('dir', 'ltr');
+                toggleBtn.innerText = 'AR';
+            }
+        }
+
+        // Tab Categories Navigation Interface
+        function switchTab(event, categoryId) {
+            const panels = document.querySelectorAll('.services-panel');
+            const tabButtons = document.querySelectorAll('.tab-btn');
+
+            panels.forEach(panel => panel.classList.remove('active'));
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(categoryId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // WhatsApp Smart Auto-Prefilled Message Generator
+        function sendWhatsAppBooking() {
+            const dateInput = document.getElementById('bookingDate').value;
+            const servicesInput = document.getElementById('bookingService').value || "Premium Spa Package";
+            const isAr = document.documentElement.getAttribute('lang') === 'ar';
+            
+            let message = "";
+            if (isAr) {
+                message = `مرحباً مشغل جمال الطبيعة، أود طلب حجز موعد بالتفاصيل التالية:\n\n📅 التاريخ: ${dateInput}\n💆‍♀️ الخدمات المطلوبة: ${servicesInput}`;
+            } else {
+                message = `Hello Beauty of Nature Spa, I would like to request an appointment with the following details:\n\n📅 Preferred Date: ${dateInput}\n💆‍♀️ Desired Services: ${servicesInput}`;
+            }
+            
+            const encodedMessage = encodeURIComponent(message);
+            const whatsAppUrl = `https://wa.me/966509906309?text=${encodedMessage}`;
+            window.open(whatsAppUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
